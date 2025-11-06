@@ -273,7 +273,7 @@ div:target {
     align-items: center;
   }
   .griddy {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 20px;
   }
   .photoMe {
@@ -286,6 +286,7 @@ div:target {
   .photo-card { flex: 1 1 90%; }
   .photo-stamp { flex: 0 1 100px; }
   .navigate ul {
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
@@ -293,6 +294,10 @@ div:target {
   .navigate ul li {
     flex: 1 1 33%;
     text-align: center;
+  }
+  .griddy {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   .photoMe {
     margin: 0 auto;
