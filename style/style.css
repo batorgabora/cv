@@ -226,6 +226,8 @@ div:target {
   margin: 0 auto;
 }
 
+
+
 /* BREAKPOINTS */
 @media (max-width: 1024px) {
   .photo-card { flex: 1 1 45%; }
