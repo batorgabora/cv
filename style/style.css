@@ -30,11 +30,11 @@ hr {
   display: flex; 
   flex-direction: row;
   gap: 40px;
-  align-content: start;
 }
 
 #picinfo{
   align-self: flex-start;
+  min-width: 250px;
 }
 
 /* NAVIGATION BAR */
@@ -82,8 +82,8 @@ div:target {
 /* ABOUT ME */
 .photoMe {
   width: 100%;
-  max-width: 250px;                                  
-  border-radius: 10px;
+  max-width: 275px;                                  
+  border-radius: 8px;
   height: auto;
   object-fit: cover;
 }
@@ -257,6 +257,7 @@ div:target {
   }
   .griddy {
     flex-direction: column;
+    align-items: center;
   }
   #picinfo{
     align-self:auto;
@@ -276,9 +277,8 @@ div:target {
     align-items: center;
   }
   .griddy {
-    grid-template-columns: 1fr;
-    max-width: 100%;
-    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
   }
   #picinfo{
     align-self:auto;
@@ -303,9 +303,8 @@ div:target {
     text-align: center;
   }
   .griddy {
-    grid-template-columns: 1fr;
-    max-width: 100%;
-    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
   }
   #picinfo{
     align-self:auto;
