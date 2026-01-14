@@ -4,7 +4,7 @@ html{
 body {
   font-family: 'Courier New', Courier, monospace;
   overflow-x: hidden;                                 /* prevent horizontal scrolling */
-  padding-left: 10px;
+  padding: 0 20px 0 20px;
   color: #B3AEA5;
 }
 
@@ -24,18 +24,18 @@ hr {
   display: flex;
   flex-direction: column;
   gap: 5px;
-}
-.flexy > div {                                        
-  padding: 5px;                                       
+  align-items: center;
 }
 
 .griddy {
-  display: grid;
-  grid-template-columns: minmax(250px, 300px) 1fr;
-  gap: 5px;
+  display: flex; 
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
 }
-.griddy > div {                                         
-  padding: 10px;                                       
+
+#picinfo{
+  align-self: flex-start;
 }
 
 /* NAVIGATION BAR */
@@ -253,12 +253,14 @@ div:target {
   .photo-stamp { flex: 0 1 120px; }
   .navigate ul {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 12px;
     justify-content: center;
   }
   .griddy {
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
+    flex-direction: column;
+  }
+  #picinfo{
+    align-self:auto;
   }
   img {
     max-width: 90%;
@@ -276,7 +278,11 @@ div:target {
   }
   .griddy {
     grid-template-columns: 1fr;
-    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  #picinfo{
+    align-self:auto;
   }
   .photoMe {
     margin: 0 auto;
@@ -299,7 +305,11 @@ div:target {
   }
   .griddy {
     grid-template-columns: 1fr;
-    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  #picinfo{
+    align-self:auto;
   }
   .photoMe {
     margin: 0 auto;
