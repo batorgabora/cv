@@ -24,14 +24,13 @@ hr {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  align-items: center;
 }
 
 .griddy {
   display: flex; 
   flex-direction: row;
-  gap: 20px;
-  align-items: center;
+  gap: 40px;
+  align-content: start;
 }
 
 #picinfo{
