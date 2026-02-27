@@ -64,6 +64,7 @@ a {
 
 a:hover {
   color: #823e3e;
+  text-decoration: underline;
 }
 
 /* SECTION HIGHLIGHT ANIMATION */
