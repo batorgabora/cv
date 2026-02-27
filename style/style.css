@@ -89,7 +89,7 @@ div:target {
   object-fit: cover;
 }
 
-#analoges {
+.analoges {
   border-radius: 12px;
   padding: 10px;
   width: 175px;
