@@ -138,6 +138,7 @@ div:target {
   flex-direction: column;
   gap: 4vh;
   width: 100%;
+  overflow: hidden;
 }
 
 /* the full-width track; max-content lets it grow as wide as all bands combined */
