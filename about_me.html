@@ -16,6 +16,9 @@
     <meta name="theme-color" content="#131414">
 
     <link rel="stylesheet" href="style/style.css">
+
+    <!-- GSAP for marquee animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 
 <body>
@@ -27,8 +30,8 @@
     <nav class="navigate">
         <ul>
             <li><a href="#about">about</a></li>
-            <li><a href="#analogues">analogues</a></li>
-            <li><a href="#polaroids">polaroids</a></li>
+            <li><a href="#analogues">analoges</a></li>
+            <li><a href="#polaroides">polaroids</a></li>
         </ul>
     </nav>
 
@@ -37,101 +40,31 @@
 
         <h3>hey, I'm Bátor</h3>
 
-        <p>  — welcome to my about page. <br><br>
-            I’m a 19-year-old student from Debrecen, Hungary, 
-            currently studying Software and Technology Engineering
-            at VIA University College in Horsens, Denmark. <br><br>
-            I enjoy rock climbing, hiking, watching films, reading literature, 
-            and using old tech — especially in photography and music. <br>
-            Whenever I can, I like to travel, explore, and make the most of the world around me. <br><br>
-            I’m curious by nature and love figuring things out, learning new skills, 
-            and collaborating with others to bring ideas to life. <br>
-            I try to work on projects that feel authentic and have a bit of impact, 
-            while always seeking new experiences and perspectives along the way. 
-            But more on that on the portfolio page. <br><br>
-            So basically that's me. <br><br>
-            Just check out some pictures from my life recently below. <br>
-        </p>
+        <div class="pictext">
+            <div>
+                <p>  — welcome to my about page. <br><br>
+                    I'm a 19-year-old student from Debrecen, Hungary, 
+                    currently studying Software and Technology Engineering
+                    at VIA University College in Horsens, Denmark. <br><br>
+                    I enjoy rock climbing, hiking, watching films, reading literature, 
+                    and using old tech — especially in photography and music. <br>
+                    Whenever I can, I like to travel, explore, and make the most of the world around me. <br><br>
+                    I'm curious by nature and love figuring things out, learning new skills, 
+                    and collaborating with others to bring ideas to life. <br>
+                    I try to work on projects that feel authentic and have a bit of impact, 
+                    while always seeking new experiences and perspectives along the way. 
+                    But more on that on the portfolio page. <br><br>
+                    So basically that's me. <br><br>
+                    Just check out some pictures from my life recently below. <br>
+                </p>
+            </div>
+            <div>
+                <img src="assets/chill.png" alt="">
+            </div>
+        </div>
     </div>
     
-    <div id="analogues">
-        <h3>some analog pictures from this year</h3>
-
-            <div class="photo-gallery">
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/frolick.jpeg" alt="frolicking in the fields">
-                    <figcaption>Horsens field</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/ship.jpeg" alt="ship in Horsens">
-                    <figcaption>ship in Horsens</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/walking.jpeg" alt="walking in Bodony">
-                    <figcaption>Bodony hike</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/hillside.jpeg" alt="mountainside ">
-                    <figcaption>Mátra mountains</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/haz.jpeg" alt="bodony house">
-                    <figcaption>new year's eve in Bodony</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/guitar.jpeg" alt="guitar">
-                    <figcaption>guitar</figcaption>
-                </figure>
-            </div>
-    </div>
-
-    <div class="analogues">
-        <h3>some analog pictures from last year</h3>
-
-            <div class="photo-gallery">
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/refiugiul.jpeg" alt="refuge in the fagaras mountains">
-                    <figcaption>refuge in the mountains</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/sup.jpeg" alt="sup">
-                    <figcaption>Nyékládháza</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/tree.jpeg" alt="forest hike">
-                    <figcaption>Taliándörögd</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/szenaboglya.jpeg" alt="művészetek völgye">
-                    <figcaption>művészetek völgye</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/cabana.jpeg" alt="cabana in the mountains">
-                    <figcaption>cabana in the mountains</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/lake.jpeg" alt="by the lake">
-                    <figcaption>Rudabánya</figcaption>
-                </figure>
-
-                <figure class="photo-card">
-                    <img class="analoges" src="assets/analoges/negoiu.jpeg" alt="negoiu peak fagaras mountains">
-                    <figcaption>Negoiu peak</figcaption>
-                </figure>
-            </div>
-    </div>
-    
-    <div id="polaroids">
+    <div id="polaroides">
         <h3>some polaroids from 2023</h3>
 
         <div class="photo-gallery">
@@ -158,15 +91,97 @@
             </figure>
 
             <figure class="photo-stamp">
-                    <a href="https://open.spotify.com/album/0ptvgHrZARlAZFmbg0WvDI?si=xDh0JSyNT2WbG1OJe73svw" target="_blank" rel="noopener noreferrer">
-                        <img class="polaroids" src="assets/polaroids/pompeii.jpeg" alt="pompeii">
-                    </a>
-                    <figcaption>ruins of Pompeii</figcaption>
+                <a href="https://open.spotify.com/album/0ptvgHrZARlAZFmbg0WvDI?si=xDh0JSyNT2WbG1OJe73svw" target="_blank" rel="noopener noreferrer">
+                    <img class="polaroids" src="assets/polaroids/pompeii.jpeg" alt="pompeii">
+                </a>
+                <figcaption>ruins of Pompeii</figcaption>
             </figure>
-                
         </div>
+        <br><br>
     </div>
 
+    <div id="analogues">
+        <div id="analog2025"
+            data-marquee-speed="70"
+            data-marquee-duplicate="2"
+            data-marquee-direction="right"
+            data-marquee-scroll-direction-target="">
+            <h3>some analog pictures from last year</h3>
+            <br>
+            <div class="analogues__scroll" data-marquee-scroll-target="">
+                <div class="photo-card" data-marquee-collection-target="">
+                    <figure>
+                        <img class="analoges" src="assets/analoges/refiugiul.jpeg" alt="refuge in the fagaras mountains">
+                        <figcaption>refuge in the mountains</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/sup.jpeg" alt="sup">
+                        <figcaption>Nyékládháza</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/tree.jpeg" alt="forest hike">
+                        <figcaption>Taliándörögd</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/szenaboglya.jpeg" alt="művészetek völgye">
+                        <figcaption>művészetek völgye</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/cabana.jpeg" alt="cabana in the mountains">
+                        <figcaption>cabana in the mountains</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/lake.jpeg" alt="by the lake">
+                        <figcaption>Rudabánya</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/negoiu.jpeg" alt="negoiu peak fagaras mountains">
+                        <figcaption>Negoiu peak</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="analog2026"
+            data-marquee-speed="70"
+            data-marquee-duplicate="2"
+            data-marquee-scroll-direction-target="">
+        
+            <h3>some analog pictures from this year</h3>
+            <br>
+            <div class="analogues__scroll" data-marquee-scroll-target="">
+                <div class="photo-card" data-marquee-collection-target="">
+                    <figure>
+                        <img class="analoges" src="assets/analoges/frolick.jpeg" alt="frolicking in the fields">
+                        <figcaption>Horsens field</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/ship.jpeg" alt="ship in Horsens">
+                        <figcaption>ship in Horsens</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/walking.jpeg" alt="walking in Bodony">
+                        <figcaption>Bodony hike</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/hillside.jpeg" alt="mountainside">
+                        <figcaption>Mátra mountains</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/haz.jpeg" alt="bodony house">
+                        <figcaption>new year's eve in Bodony</figcaption>
+                    </figure>
+                    <figure>
+                        <img class="analoges" src="assets/analoges/guitar.jpeg" alt="guitar">
+                        <figcaption>guitar</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
+<script src="js/picmover.js"></script>
 
 </html>

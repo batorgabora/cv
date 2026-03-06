@@ -1,144 +1,231 @@
-html{
-  background-color:  #131414
+html, body {
+  background-color: #131414;
 }
 body {
   font-family: 'Courier New', Courier, monospace;
-  overflow-x: hidden;                                 /* prevent horizontal scrolling */
-  padding: 0 20px 0 20px;
+  overflow-x: hidden;
+  padding: 0 0vw;
   color: #B3AEA5;
 }
 
-/* HEADINGS & DIVIDERS */
 h1 {
-  text-align: center;                                 /* center main heading */
-  border: none;                                       /* remove default border */
+  text-align: center;
+  border: none;
 }
-
 hr {
-  border: 1px solid #B3AEA5;                          /* custom color and thickness */
+  border: 1px solid #B3AEA5;
   width: 20%;
 }
 
-/* CURRICULUM VITAE */
-.flexy {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
 
-.griddy {
-  display: flex; 
-  flex-direction: row;
-  gap: 40px;
-}
-
-#picinfo{
-  align-self: flex-start;
-  min-width: 235px;
-}
-
-/* NAVIGATION BAR */
 .navbar {
-  padding: 10px;
+  padding: 1vw;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 3vw;
   font-style: italic;
   font-weight: bold;
 }
 
-.navigate ul {                                          
+/* in-page anchor links (about / analogues / polaroids) */
+.navigate ul {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 2.5vw;
   margin: 0;
   padding: 0;
   justify-content: center;
 }
-
-.navigate a, 
-a {                                                     
+/* default link colour */
+a {
   color: #946c6c;
   text-decoration: none;
 }
-
+/* darker on hover */
 a:hover {
   color: #823e3e;
   text-decoration: underline;
 }
 
-/* SECTION HIGHLIGHT ANIMATION */
+/* ── SECTION HIGHLIGHT ──
+   triggers when navigating to a #section via anchor link */
 div:target {
-  animation: highlightFade 1s ease;                                                      
-  border-radius: 8px;                                 
-  padding: 10px;
+  animation: highlightFade 1s ease;
+  border-radius: 0.8vw;
+  padding: 1vw;
 }
-
 @keyframes highlightFade {
-  0% { background-color: #4d4949; transform: scale(1.02); }
-  80% { background-color: #353232; transform: scale(1.02); }
+  0%   { background-color: #4d4949; transform: scale(1.02); }
+  80%  { background-color: #353232; transform: scale(1.02); }
   100% { background-color: transparent; transform: scale(1); }
 }
 
-/* ABOUT ME */
+
+
+/* ── CURRICULUM VITAE ── */
+/* vertical stack for cv text rows */
+.flexy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+}
+
+/* side-by-side layout for photo + info block */
+.griddy {
+  display: flex;
+  flex-direction: row;
+  gap: 4vw;
+}
+
+/* profile photo on the cv page */
 .photoMe {
   width: 100%;
-  max-width: 275px;                                  
-  border-radius: 8px;
+  max-width: 28vw;
+  border-radius: 0.8vw;
   height: auto;
   object-fit: cover;
 }
-
-.analoges {
-  border-radius: 12px;
-  padding: 10px;
-  width: 175px;
+/* stops the info column from shrinking below its content */
+#picinfo {
+  align-self: flex-start;
+  min-width: 24vw;
 }
 
-.polaroids {
-  border-radius: 5px;
-  padding: 10px;
-  width: 150px;
+/* ── ABOUT ME ── */
+/* padding so the highlight animation has breathing room */
+#about {
+  padding: 1vw;
 }
 
-.photo-gallery {
+
+.pictext {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 2.5vw;                 /* more compact spacing */
+}
+.pictext img {
+    width: 20vw;                 /* slightly smaller */
+    height: auto;
+}
+.pictext p {
+    text-align: left;
+    line-height: 1.3;           /* tighter text block */
+}
+
+/* small circular profile picture */
+.pfp {
+  width: 10vw;
+  max-width: 15vw;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ── ANALOG MARQUEE STRIPS ──
+   three-layer structure:
+   .analogues          → the visible window (overflow: hidden clips everything outside)
+   .analogues__scroll  → the wide track holding all bands side by side
+   .photo-card         → one band of images (JS clones this for the seamless loop) */
+
+/* the visible window — hides everything scrolling outside the frame */
+#analogues {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 4vh;
+  width: 100%;
 }
 
-.photo-card, 
-.photo-stamp {
+/* the full-width track; max-content lets it grow as wide as all bands combined */
+.analogues__scroll {
+  display: flex;
+  width: max-content;
+}
+
+/* one band of images that GSAP clones and loops — the "tape" duplicated to make the scroll seamless */
+.photo-card {
+  display: flex;
+  align-items: center;
+  gap: 12vw;
+  padding-right: 12vw; /* must match gap so clone edges connect without a jump */
+  flex-shrink: 0;
+}
+
+/* wrapper for each image + caption pair */
+.photo-card figure {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1 1 30%;                                      /* fixed invalid flex value */
-  max-width: 300px;
+  flex-shrink: 0; /* prevents items from squishing when the track is measured */
+  margin: 0;
 }
 
-.photo-card figcaption, 
-.photo-stamp figcaption {
-  margin-top: 5px;
+.photo-card figcaption {
+  margin-top: 0.3vw;
   font-size: 0.9em;
   text-align: center;
   color: #bda0a0;
 }
 
-#about {
-  padding: 10px;
+/* actual analog pictures — fixed height so mixed aspect ratios all align */
+.analoges {
+  width: 14vw;
+  height: 18vw;
+  object-fit: cover; /* crops to fill without stretching */
+  display: block;
+  border-radius: 0;
 }
 
-/* PORTFOLIO */
+/* ── POLAROIDS GALLERY ── */
+/* small rounded polaroid images */
+#polaroides{
+  padding: 1vh 1vw 1vh 1vw;
+}
+
+.polaroids {
+  border-radius: 0.5vw;
+  padding: 1vw;
+  width: 12vw;
+}
+
+/* wrapping flex grid for the polaroid section */
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5vw;
+  justify-content: center;
+}
+
+/* calc subtracts the two gaps (5vw × 2) from the full width, divided by 3 */
+.photo-stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 calc((100% - 10%) / 5);
+}
+
+.photo-stamp figcaption {
+  margin-top: 0.5vw;
+  font-size: 0.9em;
+  text-align: center;
+  color: #bda0a0;
+}
+
+/* ── PORTFOLIO ── */
+/* centres project figures and captions */
 .photo-portfolio {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 10px;
+  gap: 1vw;
 }
 
-/* Tooltip above project links */
+/* tooltip shown above a link on hover — reads text from the title="" attribute */
 .photo-portfolio a::after {
   content: attr(title);
   position: absolute;
@@ -148,18 +235,16 @@ div:target {
   opacity: 0;
   background: #1c1a1a;
   color: #B3AEA5;
-  padding: 4px 10px;
-  border-radius: 6px;
+  padding: 0.4vw 1vw;
+  border-radius: 0.6vw;
   font-size: 0.8em;
   white-space: nowrap;
   pointer-events: none;
   transition: opacity 0.1s ease-out, transform 0.1s ease-out;
-  box-shadow: 0 0 8px #00000070;
+  box-shadow: 0 0 0.8vw #00000070;
 }
 
-.photo-portfolio a:hover {
-  color: #e2c5c5;
-}
+.photo-portfolio a:hover { color: #e2c5c5; }
 
 .photo-portfolio a:hover::after {
   opacity: 1;
@@ -167,150 +252,101 @@ div:target {
 }
 
 .photo-portfolio figcaption {
-  margin-top: 10px;
+  margin-top: 1vw;
   text-align: center;
   color: #B3AEA5;
   font-size: 1em;
   display: block;
 }
 
-/* PROJECT GRID — robust + no overflow */
-.projects{
+/* vertical list of project entries */
+.projects {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 5vw;
 }
+
+/* two-column grid: fixed image column | flexible text column */
 .project-grid {
   display: grid;
-  grid-template-columns: clamp(260px, 30%, 360px) minmax(0, 1fr); /* img | text */
-  gap: clamp(16px, 4vw, 48px);
+  grid-template-columns: clamp(20vw, 30%, 36vw) minmax(0, 1fr);
+  gap: clamp(1.5vw, 4vw, 5vw);
   align-items: center;
-  justify-items: start;    /* stop child stretching */
-  max-width: 1100px;
+  justify-items: start;
+  max-width: 90vw;
   margin-inline: auto;
   width: 100%;
 }
 
-/* allow both cells to actually shrink when needed */
-.project-grid > * {
-  min-width: 0;            /* critical: prevents overflow at mid sizes */
-}
-
-.project-grid > figure {
-  margin: 0;
-  justify-self: center;
-}
-
-.project-grid > div {
-  width: 100%;
-  max-width: 65ch;         /* readable line-length cap */
-  overflow-wrap: anywhere; /* break long words/links */
-}
+/* min-width: 0 prevents grid children from overflowing their cell */
+.project-grid > * { min-width: 0; }
+.project-grid > figure { margin: 0; justify-self: center; }
+/* 65ch caps line length for comfortable reading */
+.project-grid > div { width: 100%; max-width: 65ch; overflow-wrap: anywhere; }
 
 .project-pic {
-  width: 260px;
+  width: 22vw;
   height: auto;
   object-fit: contain;
   display: block;
-  border-radius: 6px;
+  border-radius: 0.6vw;
 }
 
-
-.pfp {
-  width: 40vw;
-  max-width: 150px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto;
-}
-
-
-
-/* BREAKPOINTS */
+/* ── BREAKPOINTS ── */
 @media (max-width: 1024px) {
-  .photo-card { flex: 1 1 45%; }
-  .photo-stamp { flex: 0 1 150px; }
+  /* 2 per row on tablet */
+  .photo-stamp { flex: 0 0 calc((100% - 5vw) / 2); }
 }
 
 @media (max-width: 900px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .project-grid > div {
-    max-width: 75ch;
-    margin-inline: auto;
-  }
+  /* stack project image above text on medium screens */
+  .project-grid { grid-template-columns: 1fr; gap: 3vw; }
+  .project-grid > div { max-width: 75ch; margin-inline: auto; }
   .project-grid figure { margin: 0 auto; }
   .project-grid p { text-align: left; }
-  .project-pic { height: 180px; }
+  .project-pic { width: 60vw; height: auto; }
+  .analoges { width: 28vw; height: 36vw; }
 }
 
 @media (max-width: 768px) {
-  .photo-card { flex: 1 1 75%; }
-  .photo-stamp { flex: 0 1 120px; }
-  .navigate ul {
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-  }
-  .griddy {
-    flex-direction: column;
-    align-items: center;
-  }
-  #picinfo{
-    align-self:auto;
-  }
-  img {
-    max-width: 90%;
-    height: auto;
-  }
+  /* 2 per row on tablet — subtract 1 gap */
+  .photo-stamp { flex: 0 0 calc((100% - 5vw) / 2); }
+  .navigate ul { flex-wrap: wrap; gap: 2vw; justify-content: center; }
+  .griddy { flex-direction: column; align-items: center; }
+  #picinfo { align-self: auto; }
+  img { max-width: 90%; height: auto; }
+  .analoges { width: 35vw; height: 45vw; }
+  .polaroids { width: 25vw; }
+
+  .pictext {max-width: 90vw;}
+  .pictext {
+      flex-direction: column;        /* image above text */
+      align-items: center;
+      text-align: center;
+      gap: 1.5vh;
+    }
+    .pictext p {
+      text-align: center;
+    }
 }
 
 @media (max-width: 400px) {
-  .photo-card { flex: 1 1 90%; }
-  .photo-stamp { flex: 0 1 110px; }
-  .navigate ul {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-  .griddy {
-    flex-direction: column;
-    align-items: center;
-  }
-  #picinfo{
-    align-self:auto;
-  }
-  .photoMe {
-    margin: 0 auto;
-    max-width: 200px;
-  }
+  /* 1 per row on small phones */
+  .photo-stamp { flex: 0 0 100%; }
+  .navigate ul { flex-direction: column; gap: 2vw; align-items: center; }
+  .griddy { flex-direction: column; align-items: center; }
+  #picinfo { align-self: auto; }
+  .photoMe { margin: 0 auto; max-width: 60vw; }
+  .analoges { width: 60vw; height: 75vw; }
+  .polaroids { width: 40vw; }
 }
 
 @media (max-width: 375px) {
-  .photo-card { flex: 1 1 90%; }
-  .photo-stamp { flex: 0 1 100px; }
-  .navigate ul {
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-  .navigate ul li {
-    flex: 1 1 33%;
-    text-align: center;
-  }
-  .griddy {
-    flex-direction: column;
-    align-items: center;
-  }
-  #picinfo{
-    align-self:auto;
-  }
-  .photoMe {
-    margin: 0 auto;
-  }
+  .photo-stamp { flex: 0 0 100%; }
+  .navigate ul { flex-direction: column; flex-wrap: wrap; gap: 2vw; justify-content: center; }
+  /* each nav item takes roughly a third of the row */
+  .navigate ul li { flex: 1 1 33%; text-align: center; }
+  .griddy { flex-direction: column; align-items: center; }
+  #picinfo { align-self: auto; }
+  .photoMe { margin: 0 auto; }
 }
